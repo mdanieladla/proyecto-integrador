@@ -1,0 +1,90 @@
+.form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 2rem;
+}
+
+.form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+    
+}
+
+.fieldset {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 500px;
+}
+
+.legend {
+    color: var(--purple-light);
+    font-family: var(--bellefair);
+    font-size: 1.5rem;
+}
+
+.input{
+    background-color: transparent;
+    border-radius: 5px;
+    border: .5px solid hsl(246, 25%, 77%);
+    color: var(--purple-light);
+    font-family: var(--bellefair);
+    height: 50px;
+    margin-bottom: 1rem;
+    /* padding-left: 15px; */
+    width: 350px;
+}
+
+input:invalid{
+    border: 1px solid red;
+}
+
+/* input:valid{
+    border: 1px solid green;
+} */
+
+::placeholder{
+    font-family: var(--bellefair);
+    font-size: 1.125rem;
+    /* font-weight: 700; */
+    color: var(--purple-light);
+    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+}
+
+.btn{
+    background-color: var(--white);
+    border-radius: 5px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+    height: 50px;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+/*ERR input*/
+.error-message {
+    color: rgb(253, 76, 76);
+    font-family: var(--bellefair);
+    font-size: 14px;
+
+}
+
+.redirect-link {
+    font-family: var(--bellefair);
+    font-size: 1rem;
+    color: var(--purple-light);
+    letter-spacing: 2px;
+    margin-top: 2rem;
+    text-decoration: none;
+}

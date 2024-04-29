@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tourism</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap" rel="stylesheet">
+</head>
+<header class="header">
+  <!-- <div class="large-rectangle"></div> -->
+  <img src="../assets/images/logo.svg" class="img-logo" alt="logo" />
+  <!--El rectángulo se mueve en función de en que parte del menú te encuentres en la página, que se hará con JS-->
+  <div class="rectangle"></div>
+<!-- para abrir el menú -->
+  <button class="burger">
+    <img class="jsOpenMenu hamburg-icon" src="../assets/images/icon-hamburger.svg" alt="hamburger icon">
+  </button>
+  <nav id="hamburger-menu" class="nav-container jsNavMenu show-menu">
+<!-- para cerrar el menú -->
+    <button class="burger" onclick="toggleMenu()">
+      <img class="jsCloseIcon" src="../assets/images/icon-close.svg" alt="close icon">
+    </button>  
+      <ul class="nav-container__list underline | tabs">
+      <li class="menu-item | tab" data-view="home">
+        <a class="menu-link" href="../index.html" >
+          <span class="menu-link-number">00 </span>Home</a>
+      </li>
+      <li class="menu-item | tab" data-view="destinations">
+        <a class="menu-link" href="./destinations.html">
+          <span class="menu-link-number">01 </span>Destination</a>
+      </li>
+      <li class="menu-item | tab" data-view="crew">
+        <a class="menu-link" href="./crew.html" >
+          <span class="menu-link-number">02 </span>Crew</a>
+      </li>
+      <li class="menu-item | tab" data-view="technology">
+        <a class="menu-link" href="./technology.html">
+          <span class="menu-link-number">03 </span>Technology</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- DESTINATIONS -->
+<article id="destinations" class="destination__container js-destinations">
+  <div class="destination__container--photo">
+    <h4 class="destination__container--photo--title">
+      <span class="span-0">01</span> Pick your destination
+    </h4>
+    <img
+      src="../assets/images/destinations/image-moon.webp"
+      alt="moon"
+      class="destination__container--photo--img"
+    />
+  </div>
+
+  <!-- NOTA: cuando esta en uno de los planetas el color del texto es blanco y del resto es morado -->
+  <div class="destination__container--info">
+    <ul id="destinationsNames" class="destination__container--planet-option | selectSection">
+      <li class="planet"><button id="Moon">Moon</button></li>
+      <li class="planet"><button id="Mars">Mars</button></li>
+      <li class="planet"><button id="Europa">Europa</button></li>
+      <li class="planet"><button id="Titan">Titan</button></li>
+    </ul>
+    <div id="destination" class="destination__container--text | contentSection">
+      <p class="destination__container--text--main-title">
+        Moon
+      </p>
+      <p class="destination__container--text--paragraph">
+        See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+      </p>
+      <div class="destination__container--text--rectangle"></div>
+      <div class="container__div--info">
+        <div class="div__info">
+          <p class="info-travel">Avg. distance</p>
+          <p class="info-distance">384,400 km</p>
+        </div>
+        <div class="div__info">
+          <p class="info-travel">Est. travel time</p>
+          <p class="info-distance">3 days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  <script src="./js/index.js"></script>
+  <script src="./js/services.js"></script>
+</body>
+</html>

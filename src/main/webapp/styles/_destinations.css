@@ -1,0 +1,181 @@
+/* ---------------------- Destinations -----------------------------*/
+.destination__container {
+    display: flex;
+    flex-direction: column;
+
+    @media all and (width >= 1024px){
+        flex-direction: row;
+        margin-top: 2rem;
+    }
+}
+
+.destination__container--photo--title {
+    color: var(--white);
+    font-weight: 100;
+    font-family: var(--barlowCondensed);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.169rem;
+        @media all and (width >= 768px){
+            letter-spacing: 0.211rem;
+            margin-left: 2rem;
+            margin-top: 4rem;
+            text-align: left;
+        }
+        @media all and (width >= 1024px){
+            font-size: 1.75rem;
+            letter-spacing: 0.295rem;
+            text-align: center;
+        }
+}
+
+.destination__container--photo--img {
+    width: 170px;
+    height: 170px;
+    margin-top: 2rem;
+    margin-left: 6.438rem;
+    margin-right: 6.375rem;
+    @media all and (width >= 768px){
+        width: 300px;
+        height: 300px;
+        margin-left: 230px;
+        margin-top: 3rem;
+    }
+    @media all and (width:1024px){
+        width: 410px;
+        height: 410px;
+        margin-top: 2rem;
+    }
+}
+
+.destination__container--info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.planet {
+    > button {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        margin-right: 1.5rem;
+        padding: 0;
+        text-transform: uppercase;
+    }
+}
+
+.destination__container--planet-option{
+    color: var(--purple-light);
+    display: flex;
+    font-family: var(--barlowCondensed);
+    font-size: 0.938rem;
+    list-style-type: none;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    @media all and (width >= 768px){
+        font-size: 1rem;
+        letter-spacing: 2.7px;
+        margin-top: 2rem;
+    }
+    @media all and (width:1024px){
+        margin-top: 6rem;
+        margin-left: 60px;
+    }
+}
+
+.destination__container--text--main-title{
+    color: var(--white);
+    font-family: var(--bellefair);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    @media all and (width >= 768px){
+        font-size: 5rem;
+        margin-top: 2rem;
+    }
+    @media all and (width >= 1024px){
+        font-size: 6.25rem;
+        margin-top: .5rem;
+    }
+}
+
+.destination__container--text--paragraph{
+    color: var(--purple-light);
+    font-family: var(--barlowCondensed);
+    font-size: 1rem;
+    font-weight: lighter;
+    line-height: 25px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: center;
+    word-spacing: 5.5px;
+    @media all and (width >= 768px){
+        line-height: 28px;
+        margin-bottom: 3rem;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    @media all and (width >= 1024px){
+        font-size: 1.125rem;
+        line-height: 2rem;
+        margin-bottom: 2rem;
+        max-width: 445px;
+        text-align: left;
+    }
+}
+
+.destination__container--text--rectangle{
+    margin-left: 2.3rem ;
+    background-color: #383B4B;
+    width: 327px;
+    height: 1px;
+    @media all and (width >= 768px){
+        width: 573px;
+        margin-left: 6rem;
+    }
+    @media all and (width >= 1024px){
+        width: 444px;
+        margin-bottom: .5rem;
+    }
+}
+
+.container__div--info{
+    display: flex;
+    flex-direction: column;
+    @media all and (width >= 768px){
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+.div__info{
+    padding: 10px;
+}
+
+.info-travel{
+    color: var(--purple-light);
+    font-family: var(--barlowCondensed);
+    font-size: 0.875rem;
+    letter-spacing: 2.36px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.info-distance{
+    color: var(--white);
+    font-family: var(--bellefair);
+    font-size: 1.75rem;
+    line-height: 32px;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    text-transform: uppercase;
+    @media all and (width >= 1024px){
+        line-height: 1;
+    }
+}

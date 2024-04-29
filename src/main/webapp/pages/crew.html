@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crew</title>
+  <link rel="stylesheet" href="../styles/main.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <!-- <div class="large-rectangle"></div> -->
+    <img src="../assets/images/logo.svg" class="img-logo" alt="logo" />
+    <!--El rectángulo se mueve en función de en que parte del menú te encuentres en la página, que se hará con JS-->
+    <div class="rectangle"></div>
+  <!-- para abrir el menú -->
+    <button class="burger">
+      <img class="jsOpenMenu hamburg-icon" src="../assets/images/icon-hamburger.svg" alt="hamburger icon">
+    </button>
+    <nav id="hamburger-menu" class="nav-container jsNavMenu show-menu">
+  <!-- para cerrar el menú -->
+      <button class="burger" onclick="toggleMenu()">
+        <img class="jsCloseIcon" src="../assets/images/icon-close.svg" alt="close icon">
+      </button>  
+        <ul class="nav-container__list underline | tabs">
+        <li class="menu-item | tab" data-view="home">
+          <a class="menu-link" href="../index.html" >
+            <span class="menu-link-number">00 </span>Home</a>
+        </li>
+        <li class="menu-item | tab" data-view="destinations">
+          <a class="menu-link" href="./destinations.html">
+            <span class="menu-link-number">01 </span>Destination</a>
+        </li>
+        <li class="menu-item | tab" data-view="crew">
+          <a class="menu-link" href="./crew.html" >
+            <span class="menu-link-number">02 </span>Crew</a>
+        </li>
+        <li class="menu-item | tab" data-view="technology">
+          <a class="menu-link" href="./technology.html">
+            <span class="menu-link-number">03 </span>Technology</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- CREW -->
+<article id="crew" class="crew__container">
+  <div class="crew__container--div">
+    <h4 class="crew__container--first-title">
+      <span class="span-0">02</span> Meet your crew
+    </h4>
+    <div class="div-image-reverse">
+      <div class="crew__container--info">
+        <h5 class="crew__container--info-subtitle">
+          Commander
+        </h5>
+        <h3 class="crew__container--info-main-title">
+          Douglas Hurley
+        </h3>
+        <p class="crew__container--info-paragraph">
+          Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.
+        </p>
+        <div class="circle-container">
+          <button
+            class="circle c-active"
+          ></button>
+          <button
+            class="circle"
+          ></button>
+          <button
+            class="circle"
+          ></button>
+        </div>
+      </div>
+      <div class="img-separator"></div>
+      <img
+        src="../assets/images/crew/image-douglas-hurley.webp"
+        alt="douglas"
+        class="crew__container--crew-member"
+      />
+    </div>
+  </div>
+</article>
+<!---->
+</body>
+</html>

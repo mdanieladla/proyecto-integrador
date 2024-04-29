@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tourism</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <!-- <div class="large-rectangle"></div> -->
+        <img src="./assets/images/logo.svg" class="img-logo" alt="logo" />
+        <!--El rectángulo se mueve en función de en que parte del menú te encuentres en la página, que se hará con JS-->
+        <div class="rectangle"></div>
+<!-- para abrir el menú -->
+        <button class="burger">
+          <img class="jsOpenMenu hamburg-icon" src="./assets/images/icon-hamburger.svg" alt="hamburger icon">
+        </button>
+        <nav id="hamburger-menu" class="nav-container jsNavMenu show-menu">
+<!-- para cerrar el menú -->
+          <button class="burger" onclick="toggleMenu()">
+            <img class="jsCloseIcon" src="./assets/images/icon-close.svg" alt="close icon">
+          </button>  
+            <ul class="nav-container__list underline | tabs">
+            <li class="menu-item | tab" data-view="home">
+              <a class="menu-link" href="#" >
+                <span class="menu-link-number">00 </span>Home</a>
+            </li>
+            <li class="menu-item | tab" data-view="destinations">
+              <a class="menu-link" href="./pages/destinations.html">
+                <span class="menu-link-number">01 </span>Destination</a>
+            </li>
+            <li class="menu-item | tab" data-view="crew">
+              <a class="menu-link" href="./pages/crew.html" >
+                <span class="menu-link-number">02 </span>Crew</a>
+            </li>
+            <li class="menu-item | tab" data-view="technology">
+              <a class="menu-link" href="./pages/technology.html">
+                <span class="menu-link-number">03 </span>Technology</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <main id="main-page home" class="main-container view">
+        <div class="main-container__description">
+          <h5 class="main-container__description--title">So, you want to travel to</h5>
+          <h1 class="main-container__description--title-space">Space</h1>
+          <p class="main-container__description--paragraph">
+            Let's face it; if you want to go to space, you might as well genuinely go
+            to outer space and not hover kind of on the edge of it. Well sit back, and
+            relax because we'll give you a truly out of this world experience! Create an account or log in to enjoy this experience!
+          </p>
+        </div>
+        <button class="home-button">
+          <a href="#create-account">Explore</a>
+          <!-- <a href="#destinations">Explore</a> -->
+        </button>
+    </main>
+
+    <!--CREAR CUENTA-->
+    <section class="form-container">
+      <form action="" id="create-account" method="post" class="form | js-form">
+        <fieldset class="fieldset">
+          <legend class="legend">Your information</legend>
+          <span class="error-message | js-first-name-err"></span>
+          <label for="name">
+            <input class="input | js-first-name" type="text" id="name" placeholder="Your name..">
+          </label>
+          <span class="error-message | js-email-err"></span>
+          <label for="email">
+            <input class="input | js-email" type="text" id="email" placeholder="Your email..">
+          </label>
+          <span class="error-message | js-pass-err"></span>
+          <label for="password">
+            <input class="input | js-password" type="password" id="password" placeholder="A secret password..">
+          </label>
+        </fieldset>
+        <button class="btn | js-submit" type="submit">To space!</button>
+      </form>
+      <a class="redirect-link" href="#login">I already have an account</a>
+    </section>
+    <!--INICIAR SESIÓN-->
+    <section class="form-container">
+      <form action="" id="login" method="post" class="form | js-form">
+        <fieldset class="fieldset">
+          <legend class="legend">Log in</legend>
+          <span class="error-message | js-email-err"></span>
+          <label for="email">
+            <input class="input | js-email" type="text" id="email" placeholder="Your email..">
+          </label>
+          <span class="error-message | js-pass-err"></span>
+          <label for="password">
+            <input class="input | js-password" type="password" id="password" placeholder="A secret password..">
+          </label>
+        </fieldset>
+        <button class="btn | js-submit" type="submit">To space!</button>
+      </form>
+    </section>
+    <!---->
+    <!-- DESTINATIONS -->
+
+<!---->
+<!-- CREW -->
+<!-- <article id="crew" class="crew__container view">
+  <div class="crew__container--div">
+    <h4 class="crew__container--first-title">
+      <span class="span-0">02</span> Meet your crew
+    </h4>
+    <div class="div-image-reverse">
+      <div class="crew__container--info">
+        <h5 class="crew__container--info-subtitle">
+          Commander
+        </h5>
+        <h3 class="crew__container--info-main-title">
+          Douglas Hurley
+        </h3>
+        <p class="crew__container--info-paragraph">
+          Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.
+        </p>
+        <div class="circle-container"> -->
+          <!-- <button
+            *ngFor="let crew of crew"
+            (click)="this.currentCrewMember = this.crew"
+            class="circle first"
+          ></button> -->
+          <!-- <button
+            class="circle c-active"
+          ></button>
+          <button
+            class="circle"
+          ></button>
+          <button
+            class="circle"
+          ></button>
+        </div>
+      </div>
+      <div class="img-separator"></div>
+      <img
+        src="./assets/images/crew/image-douglas-hurley.webp"
+        alt="douglas"
+        class="crew__container--crew-member"
+      />
+    </div> -->
+    <!-- DONDE LO PONGO PARA QUE QUEDE COMO TIENE QUE QUEDAR <div class='rectangle'></div>  -->
+  <!-- </div>
+</article> -->
+<!---->
+<!--TECHNOLOGY-->
+<!-- <article id="technology" class="technology__container view">
+  <h4 class="technology__container--title">
+    <span class="span-0">03</span> Space launch 101
+  </h4>
+  <div class="larger-styles"> -->
+    <!-- <div class=" img-vehicle">
+      <img
+        class="img-vehicle"
+        src="./assets/images/technology/image-space-capsule-portrait.jpg"
+        alt="launching vehicle"
+      />
+    </div> -->
+    <!-- <div class="technology__container-info">
+      <div class="technology__container-info--btns"> -->
+        <!-- <button
+          *ngFor="let technology of technology; let i = index"
+          (click)="this.currentTechnology = this.technology"
+          class="technology__container--div--info--btns--btn"
+        >
+          {{ i + 1 }}
+        </button> -->
+        <!-- <button
+          class="technology--btn"
+        >
+          1
+        </button>
+        <button
+          class="technology--btn"
+        >
+          2
+        </button>
+        <button
+          class="technology--btn"
+        >
+          3
+        </button>
+      </div>
+      <div class="technology__container--info">
+        <p class="terminology">The terminology...</p>
+        <h5 class="technology-name">Launch vehicle</h5>
+        <p class="technology-description">
+          A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+        </p>
+      </div>
+    </div>
+  </div> -->
+  <!-- cuando esta en uno de los planetas el color del texto es blanco y del resto es morado -->
+<!-- </article> -->
+<!---->
+
+    <script src="./js/index.js"></script>
+    <script src="./js/services.js"></script>
+</body>
+</html>
