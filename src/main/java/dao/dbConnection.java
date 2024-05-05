@@ -6,49 +6,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
 public class dbConnection {
-	private String url = "jdbc:mysql://localhost:3306/spacetourism";
-	private String user = "root";
-	private String password = "";
-	public static Connection connect = null;
 	
-	public dbConnection() {
+	public static final String url = "jdbc:mysql://localhost:3306/spacetourism";
+	public static Connection instance = null;
+	
+	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		
-	}
-	
-	public void connectDb() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		connect = DriverManager.getConnection(url, user, password);
-	}
-	
-	
-	public void desconnectDb() throws SQLException {
-		if (connect!=null) {
-			connect.close();
-		}
-	}
-	
-	public void listDestinations() throws SQLException {
-		if (connect!=null) {
-			String query = "select * from destinations";
-			Statement st = connect.createStatement();
-			ResultSet rs = st.executeQuery(query);
-			String name;
-			String imageUrl;
-			String description;
-			String distance;
-			String travel;
-			
-			while (rs.next()) {
-				name = (String)rs.getObject(1);
-				imageUrl = (String)rs.getObject(2);
-				description = (String)rs.getObject(3);
-				distance = (String)rs.getObject(4);
-				travel = (String)rs.getObject(5);
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			instance = DriverManager.getConnection(url, "root", "");
+			if (instance!=null) {
+				System.out.println("Se ha conectado de forma correcta");
 			}
-			rs.close();
-		} else {
-			System.out.println("Conecta primero a la BD!");
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
+		
+		
+	/*if (instance == null) {
+			Class.forName("com.mysql.jdbc.Driver");
+			instance = DriverManager.getConnection(url, "root", "");
+		}*/
+		
+		return instance;
 	}
 }
