@@ -38,7 +38,7 @@ public class destinationsData extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		response.setContentType("application/json");
-		
+		System.out.println("va??");
 		try {
 			PrintWriter out = response.getWriter();
 				
@@ -80,6 +80,8 @@ public class destinationsData extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 
+		
+		
 	}
 
 }

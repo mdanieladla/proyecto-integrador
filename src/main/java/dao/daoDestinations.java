@@ -11,16 +11,24 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import modelo.Destinations;
+import dao.dbConnection;
 
 public class daoDestinations {
 	
 	public static Connection con = null;
 	
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	/*public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		
 		daoDestinations.con = dbConnection.getConnection();
 		
 		listJson();
+	}*/
+	
+
+	public daoDestinations() throws SQLException, ClassNotFoundException {
+		
+		this.con = dbConnection.getConnection();
+ 		
 	}
 	
 	private static ArrayList<Destinations> list() throws SQLException {

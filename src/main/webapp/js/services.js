@@ -11,7 +11,7 @@ let destinations = [];
     .catch(error => console.error('Error fetching JSON:', error));*/
 
 function fetchData() {
-      fetch('/spacetourism/destinationsData')
+      fetch('destinationsData')
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error fetching JSON:', error));

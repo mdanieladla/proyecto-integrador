@@ -79,7 +79,7 @@ public class Destinations {
 		this.travel = travel;
 	}
 
-	public void list() throws SQLException {
+	public void list() throws SQLException, ClassNotFoundException {
 		daoDestinations dao = new daoDestinations();
 		
 	}
