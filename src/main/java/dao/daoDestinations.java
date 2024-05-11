@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import modelo.Destinations;
+import modelo.destinations;
 import dao.dbConnection;
 
 public class daoDestinations {
@@ -31,21 +31,21 @@ public class daoDestinations {
  		
 	}
 	
-	private static ArrayList<Destinations> list() throws SQLException {
+	private static ArrayList<destinations> list() throws SQLException {
 		String sql = "SELECT * FROM destinations";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ResultSet rs = ps.executeQuery();
 		
-		ArrayList<Destinations> destinations = null;
+		ArrayList<destinations> destinations = null;
 		
 		while (rs.next()) {
 			if (destinations == null) {
-				destinations = new ArrayList<Destinations>();
+				destinations = new ArrayList<destinations>();
 			}
 			
-			destinations.add(new Destinations(rs.getInt("id"), rs.getString("name"), rs.getString("imageUrl"), rs.getString("description"), rs.getString("distance"), rs.getString("travel")));
+			destinations.add(new destinations(rs.getInt("id"), rs.getString("name"), rs.getString("imageUrl"), rs.getString("description"), rs.getString("distance"), rs.getString("travel")));
 			System.out.println("funciona");
 		}
 		

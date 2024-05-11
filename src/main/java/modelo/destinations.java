@@ -8,7 +8,7 @@ import java.sql.Statement;
 import dao.dbConnection;
 import dao.daoDestinations;
 
-public class Destinations {
+public class destinations {
 	
 	private int id;
 	private String name;
@@ -17,11 +17,11 @@ public class Destinations {
 	private String distance;
 	private String travel;
 
-	public Destinations() {
+	public destinations() {
 		
 	}
 	
-	public Destinations(int id, String name, String imageUrl, String description, String distance, String travel) {
+	public destinations(int id, String name, String imageUrl, String description, String distance, String travel) {
 		super();
 		this.id = id;
 		this.name = name;
