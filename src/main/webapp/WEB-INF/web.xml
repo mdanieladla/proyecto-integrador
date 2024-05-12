@@ -29,4 +29,14 @@
     <servlet-name>destinationsData</servlet-name>
     <url-pattern>/destinationsData</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserManagement</display-name>
+    <servlet-name>UserManagement</servlet-name>
+    <servlet-class>controlador.UserManagement</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserManagement</servlet-name>
+    <url-pattern>/UserManagement</url-pattern>
+  </servlet-mapping>
 </web-app>
