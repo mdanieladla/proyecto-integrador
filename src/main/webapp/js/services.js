@@ -24,6 +24,35 @@ function fetchData() {
     window.onload = function() {
       fetchData();
     }
+
+/*código para coger los usuarios en AJAX puro, usando fetch hay cosas que no se hacen
+window.onload = function () {
+  let user;
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        try {
+          user = JSON.parse(xhr.responseText);
+
+          //document.getElementById('user').innerHTML = user.???
+        } catch (e) {
+          //TODO: handle exception
+          location.href = "que html???"
+        }
+      }
+    }
+  };
+
+  xhr.open("GET", "??", false);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.send()
+} */
+    
+/* para pintar los usuarios después de cogerlo, vídeo 6 abril 2h26min */
+
+
+
 // function processData() {
 //     const destinationsNames = document.querySelector('#destinationsNames');
 //     const destinationContainer = document.querySelector('#destination');

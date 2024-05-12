@@ -1,6 +1,8 @@
 package modelo;
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.DaoUser;
 
 public class User {
@@ -73,6 +75,39 @@ public class User {
 	public void insert() throws ClassNotFoundException, SQLException {
 		DaoUser dao = new DaoUser();
 		dao.insert(this);
+	}
+	
+	public void getById(int id) throws ClassNotFoundException, SQLException {
+		DaoUser dao = new DaoUser();
+		User usr = dao.getById(id);
+		
+		this.setId(usr.getId());
+		this.setName(usr.getName());
+		this.setEmail(usr.getEmail());
+	}
+	
+	public String getJson() {
+		String json = "";
+		Gson gson = new Gson();
+		
+		json = gson.toJson(this);
+		return json;
+	}
+	
+	public void update() throws ClassNotFoundException, SQLException {
+		DaoUser dao = new DaoUser();
+		dao.update(this);
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public void deleteUser(int id) throws ClassNotFoundException, SQLException {
+		DaoUser dao = new DaoUser();
+		dao.deleteUser(id);
 	}
 	
 	@Override
