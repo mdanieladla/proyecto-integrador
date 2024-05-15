@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-
+/**
+ * JAVADOC
+ */
 public class dbConnection {
 	
 	public static final String url = "jdbc:mysql://localhost:3306/spacetourism";

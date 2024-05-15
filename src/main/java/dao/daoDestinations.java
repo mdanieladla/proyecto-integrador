@@ -12,7 +12,9 @@ import com.google.gson.Gson;
 
 import modelo.destinations;
 import dao.dbConnection;
-
+/**
+ * JAVADDOC
+ */
 public class daoDestinations {
 	
 	public static Connection con = null;

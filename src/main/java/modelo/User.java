@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package modelo;
 import java.sql.SQLException;
 
@@ -5,6 +8,9 @@ import com.google.gson.Gson;
 
 import dao.DaoUser;
 
+/**
+ * Represents an User 
+ */
 public class User {
 	private int id;
 	private String name;
@@ -14,17 +20,16 @@ public class User {
 	 * */
 	
 	/**
-	 * Constructor para generar un objeto vacío de tipo usuario
+	 * Constructor to generate void object of type user
 	 * */
-	
 	public User() {
 		
 	}
 	
 	/**
-	 * Constructor para creación del objeto desde el formulario.
-	 * @param name Atributo solo texto
-	 * @param email Atributo solo texto
+	 * Constructor to create object from frontend form
+	 * @param name Attribute only text
+	 * @param email Attribute only text
 	 */
 	public User(String name, String email) {
 		this.name = name;
@@ -32,7 +37,7 @@ public class User {
 	}
 	
 	/**
-	 * Constructo para la base de datos
+	 * Constructor for DB
 	 * @param id
 	 * @param name
 	 * @param email
@@ -45,38 +50,69 @@ public class User {
 	}
 
 	/**
-	 * Método de inclusión del id en el objeto
-	 * @return devuelve el id en tipo entero
+	 * Method to add id to the object
+	 * @return id of type integer
 	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Method to set id to the object
+	 * @param id of type integer
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Method to add name to the object
+	 * @return name of type String
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method to set name to the object
+	 * @param name of type String
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Method to add email to the object
+	 * @return email of type String
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * Method to set email to object
+	 * @param email of type String
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * Method to insert user
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void insert() throws ClassNotFoundException, SQLException {
 		DaoUser dao = new DaoUser();
 		dao.insert(this);
 	}
 	
+	/**
+	 * Method to get user by id
+	 * @param id of type integer
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void getById(int id) throws ClassNotFoundException, SQLException {
 		DaoUser dao = new DaoUser();
 		User usr = dao.getById(id);
@@ -86,6 +122,10 @@ public class User {
 		this.setEmail(usr.getEmail());
 	}
 	
+	/**
+	 * Method to get data as JSON
+	 * @return String
+	 */
 	public String getJson() {
 		String json = "";
 		Gson gson = new Gson();
@@ -94,14 +134,19 @@ public class User {
 		return json;
 	}
 	
+	/**
+	 * Method to update users
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void update() throws ClassNotFoundException, SQLException {
 		DaoUser dao = new DaoUser();
 		dao.update(this);
 	}
 	
 	/**
-	 * 
-	 * @param id
+	 * Method to delete user
+	 * @param id of type integer
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
