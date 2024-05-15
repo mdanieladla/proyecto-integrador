@@ -39,4 +39,24 @@
     <servlet-name>UserManagement</servlet-name>
     <url-pattern>/UserManagement</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TechnologyData</display-name>
+    <servlet-name>TechnologyData</servlet-name>
+    <servlet-class>controlador.TechnologyData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TechnologyData</servlet-name>
+    <url-pattern>/TechnologyData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CrewData</display-name>
+    <servlet-name>CrewData</servlet-name>
+    <servlet-class>controlador.CrewData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrewData</servlet-name>
+    <url-pattern>/CrewData</url-pattern>
+  </servlet-mapping>
 </web-app>

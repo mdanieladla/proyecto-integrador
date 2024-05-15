@@ -32,6 +32,7 @@ public class UserManagement extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		
 		String username = request.getParameter("name");

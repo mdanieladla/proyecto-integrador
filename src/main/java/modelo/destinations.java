@@ -152,6 +152,10 @@ public class destinations {
 		
 	}
 	
+	/**
+	 * Method to override and print proper output
+	 * @return A String representation of the object
+	 */
 	@Override
 	public String toString() {
 		return "Destinations [id=" + id + ", name=" + name + ", imageUrl=" + imageUrl + ", description=" + description

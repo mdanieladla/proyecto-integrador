@@ -155,6 +155,10 @@ public class User {
 		dao.deleteUser(id);
 	}
 	
+	/**
+	 * Method to override and print proper output
+	 * @return A String representation of the object
+	 */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
