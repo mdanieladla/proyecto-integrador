@@ -66,6 +66,7 @@ public class UserManagement extends HttpServlet {
 				System.out.println("Borrando " + id);
 
 			} else {
+				out.print("Error. No es una opción válida");
 				System.out.println("No es una opción válida");
 			}
 		} catch (SQLException | ClassNotFoundException e) {
