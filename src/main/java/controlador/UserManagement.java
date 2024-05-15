@@ -33,36 +33,45 @@ public class UserManagement extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
+		
+		String username = request.getParameter("name");
+		String email = request.getParameter("email");
+		String id = request.getParameter("id");
+		int operationType = Integer.parseInt(request.getParameter("operationType"));
 
-		/**
-		* Para listar los usuarios
-		*/
+		User user = new User(username, email);
 		DaoUser users;
-		
 		try {
-			users = new DaoUser();
-			out.print(users.listJson());
+			if (operationType == 1) {
+				/*Para listar los usuarios*/
+				
+				users = new DaoUser();
+				out.print(users.listJson());
+		
+			} else if (operationType == 2) {
+				/* Para insertar usuarios*/
+				DaoUser dao = new DaoUser();
+				dao.insert(user);
+			
+			} else if (operationType == 3) {
+				/*Para actualizar usuarios*/
+				int idParsed = Integer.parseInt(id);
+				user.setId(idParsed);
+				user.update();
+			} else if (operationType == 4) {
+				/* Para borrar usuarios*/
+				int idParsed = Integer.parseInt(id);
+				user.deleteUser(idParsed);
+				System.out.println("Borrando " + id);
 
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		
-		/**
-		 * Para borrar usuarios
-		*/
-		
-		try {
-			int id = Integer.parseInt(request.getParameter("id")); //TODO: arreglar errror de "cannot parse null string"
-			DaoUser usr = new DaoUser();
-			usr.deleteUser(id);
-			System.out.println("Borrando " + id);
-			out.print(usr.listJson());
+			} else {
+				System.out.println("No es una opción válida");
+			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		/*SI DA TIEMPO PARA EL FRONT response.sendRedirect("listarUsuarios.html");*/
 	}
 
@@ -71,33 +80,7 @@ public class UserManagement extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("hola caracola");
-
-		String username = request.getParameter("name");
-		String email = request.getParameter("email");
-		String id = request.getParameter("id");
 		
-		User user = new User(username, email);
-
-		try {
-			if (id == null) {
-				/**
-				 * Para insertar usuarios
-				 */
-				DaoUser dao = new DaoUser();
-				dao.insert(user);
-			} else {
-				/**
-				 * Para actualizar usuarios
-				 */
-				int idParsed = Integer.parseInt(id);
-				user.setId(idParsed);
-				user.update();
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }
