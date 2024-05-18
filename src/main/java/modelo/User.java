@@ -123,6 +123,31 @@ public class User {
 	}
 	
 	/**
+	 * Method to check if a user is logged by checking the credentials against a DB
+	 * @param email of type String
+	 * @param password of type String
+	 * @return boolean
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
+	public boolean login(String email, String password) throws ClassNotFoundException, SQLException {
+		boolean ok = false;
+		
+		DaoUser dao = new DaoUser();
+		User aux = dao.login(email, password); //bd
+		
+		if (aux != null) {
+			ok = true;
+			this.setId(aux.getId());
+			this.setName(aux.getName());
+			this.setEmail(aux.getEmail());
+		}
+		
+		return ok;
+		
+	}
+
+	/**
 	 * Method to get data as JSON
 	 * @return String
 	 */

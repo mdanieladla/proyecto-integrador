@@ -18,6 +18,10 @@ public class DaoUser {
 		this.con = dbConnection.getConnection();
 	}
 	
+	private boolean exists(User user) {
+		return true;
+	}
+	
 	/**
 	 * Método inserción en la bd del objecto user
 	 * @param user Object type user
@@ -50,6 +54,20 @@ public class DaoUser {
 		User usr = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
 		
 		return usr;
+	}
+	
+	public User login(String email, String password) throws SQLException {
+		String sql = "SELECT * FROM users WHERE email=? AND password=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, password);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		User aux = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+		return aux;
 	}
 	
 	public void update(User usr) throws SQLException {
@@ -105,6 +123,19 @@ public class DaoUser {
 		
 		json = gson.toJson(this.list());
 		
+		return json;
+	}
+	
+	public String responseLogin(boolean response) {
+		String json = "";
+		Gson gson = new Gson();
+		
+		if (response) {
+			json = gson.toJson("User logged successfully");
+			return json;
+		}
+		
+		json = gson.toJson("Incorrect password or user");
 		return json;
 	}
 	
