@@ -69,4 +69,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Trips</display-name>
+    <servlet-name>Trips</servlet-name>
+    <servlet-class>controlador.Trips</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Trips</servlet-name>
+    <url-pattern>/Trips</url-pattern>
+  </servlet-mapping>
 </web-app>
