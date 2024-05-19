@@ -29,12 +29,13 @@ public class DaoUser {
 	 */
 	
 	public void insert(User user) throws SQLException {
-		String sql = "INSERT INTO users (username, email) VALUES (?,?)";
+		String sql = "INSERT INTO users (username, email, password) VALUES (?,?,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setString(1, user.getName());
 		ps.setString(2, user.getEmail());
+		ps.setString(3, user.getPassword());
 		
 		ps.executeUpdate();
 		
@@ -51,7 +52,7 @@ public class DaoUser {
 		
 		rs.next();
 		
-		User usr = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+		User usr = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 		
 		return usr;
 	}
@@ -66,7 +67,7 @@ public class DaoUser {
 		
 		rs.next();
 		
-		User aux = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+		User aux = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 		return aux;
 	}
 	
@@ -105,7 +106,7 @@ public class DaoUser {
 				listUsers = new ArrayList<User>();
 			}
 			
-			listUsers.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3)));
+			listUsers.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 		}
 		
 		return listUsers;

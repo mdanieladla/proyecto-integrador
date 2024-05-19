@@ -37,10 +37,11 @@ public class UserManagement extends HttpServlet {
 		
 		String username = request.getParameter("name");
 		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		String id = request.getParameter("id");
 		int operationType = Integer.parseInt(request.getParameter("operationType"));
 
-		User user = new User(username, email);
+		User user = new User(username, email, password);
 		DaoUser users;
 		try {
 			if (operationType == 1) {

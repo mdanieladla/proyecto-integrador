@@ -15,6 +15,7 @@ public class User {
 	private int id;
 	private String name;
 	private String email;
+	private String password;
 	/*NOTA: una contraseña no se puede guardar en un modelo 
 	 * por la protección de datos
 	 * */
@@ -31,9 +32,10 @@ public class User {
 	 * @param name Attribute only text
 	 * @param email Attribute only text
 	 */
-	public User(String name, String email) {
+	public User(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
+		this.password = password;
 	}
 	
 	/**
@@ -42,11 +44,12 @@ public class User {
 	 * @param name
 	 * @param email
 	 */
-	public User(int id, String name, String email) {
+	public User(int id, String name, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.password = password;
 	}
 
 	/**
@@ -98,6 +101,22 @@ public class User {
 	}
 
 	/**
+	 * Method to add password to object
+	 * @return password of type String
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * Method to set password to object
+	 * @param password of type string
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
 	 * Method to insert user
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
@@ -141,6 +160,7 @@ public class User {
 			this.setId(aux.getId());
 			this.setName(aux.getName());
 			this.setEmail(aux.getEmail());
+			this.setPassword(aux.getPassword());
 		}
 		
 		return ok;
@@ -186,7 +206,7 @@ public class User {
 	 */
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
 	
 }

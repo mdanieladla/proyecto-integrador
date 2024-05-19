@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		User user = new User(username, email);
+		User user = new User(username, email, password);
 		
 		try {
 			DaoUser dao = new DaoUser();
