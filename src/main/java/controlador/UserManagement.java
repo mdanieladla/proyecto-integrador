@@ -54,17 +54,19 @@ public class UserManagement extends HttpServlet {
 				/* Para insertar usuarios*/
 				DaoUser dao = new DaoUser();
 				dao.insert(user);
+				out.print("User created");
 			
 			} else if (operationType == 3) {
 				/*Para actualizar usuarios*/
 				int idParsed = Integer.parseInt(id);
 				user.setId(idParsed);
 				user.update();
+				out.print("Updated user with ID:" + idParsed);
 			} else if (operationType == 4) {
 				/* Para borrar usuarios*/
 				int idParsed = Integer.parseInt(id);
 				user.deleteUser(idParsed);
-				System.out.println("Borrando " + id);
+				out.print("Deleted user with ID: "  + id);
 
 			} else {
 				out.print("Error. No es una opción válida");

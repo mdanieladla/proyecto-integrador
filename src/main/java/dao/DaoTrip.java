@@ -18,11 +18,11 @@ public class DaoTrip {
 	}
 	
 	public void insertTrip(Trip trip) throws SQLException {
-		String sql = "INSERT INTO destinationsusers (destinationsId, userId) VALUES (?, ?)";
+		String sql = "INSERT INTO destinationsusers (destinationsId, userId) VALUES (?,?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
-		ps.setInt(1, trip.getId());
+		ps.setInt(1, trip.getDestinationsId());
 		ps.setInt(2, trip.getUserId());
 		
 		ps.executeUpdate();
@@ -30,11 +30,24 @@ public class DaoTrip {
 		ps.close();
 	}
 	
-	public ArrayList<Trip> listTrips(int userId) throws SQLException {
-		String sql = "SELECT destinations.id AS 'DestID', users.id, destinationsusers.id, destinations.name, users.username FROM spacetourism.destinations INNER JOIN spacetourism.destinationsusers ON destinations.id=destinationsusers.destinationsId INNER JOIN spacetourism.users ON destinationsusers.userId=users.id WHERE userId=?";
+	public Trip getById(int id) throws SQLException {
+		String sql = "SELECT * FROM destinationsusers WHERE id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
 		
-		ps.setInt(1, userId);
+		rs.next();
+		
+		Trip trip = new Trip(rs.getInt(1), rs.getInt(2), rs.getInt(3));
+		
+		return trip;
+	}
+	
+	//esto es la relación de las tablas para sacar los ids, username y destino name
+	public ArrayList<Trip> listTrips() throws SQLException {
+		//String sql = "SELECT destinations.id AS 'DestID', users.id, destinationsusers.id, destinations.name, users.username FROM spacetourism.destinations INNER JOIN spacetourism.destinationsusers ON destinations.id=destinationsusers.destinationsId INNER JOIN spacetourism.users ON destinationsusers.userId=users.id WHERE userId=?";
+		String sql = "SELECT * FROM destinationsusers";
+		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ResultSet rs = ps.executeQuery();
 		
@@ -44,7 +57,7 @@ public class DaoTrip {
 			if (listTrips == null) {
 				listTrips = new ArrayList<Trip>();
 			}
-			listTrips.add(new Trip(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5)));
+			listTrips.add(new Trip(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
 		}
 		return listTrips;
 	}
@@ -54,6 +67,7 @@ public class DaoTrip {
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, id);
+		int filas = ps.executeUpdate();
 		ps.close();
 	}
 	
@@ -62,7 +76,7 @@ public class DaoTrip {
 		String json = "";
 		Gson gson = new Gson();
 		
-		json = gson.toJson(this.listTrips(userId));
+		json = gson.toJson(this.listTrips());
 		
 		return json;
 	}
