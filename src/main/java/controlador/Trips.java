@@ -1,7 +1,6 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -35,9 +34,10 @@ public class Trips extends HttpServlet {
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		
+		String userId = request.getParameter("userId");
 		String id = request.getParameter("id");
 		String destinationsId = request.getParameter("destinationsId");
-		String userId = request.getParameter("userId");
+		
 		
 		DaoTrip trips;
 		
@@ -46,27 +46,30 @@ public class Trips extends HttpServlet {
 				int operationType = Integer.parseInt(request.getParameter("operationType"));
 			
 				if (operationType == 1) {
-				/*Listar trips -READ- - el user con su ID ve sus viajes*/
+				/*READ - List ALL existing trips */
+					trips = new DaoTrip();
+					out.print(trips.listJson());
+				} else if (operationType == 2) {
+				/*READ - List trips - User with his ID can see his trips*/
 					int idParsed = Integer.parseInt(userId);
 					trips = new DaoTrip();
-					out.print(trips.listJson(idParsed));
-				} else if (operationType == 2) {
-				/*CREATE/insertar trip - contratar un viaje*/
+					out.print(trips.listByIdJson(idParsed));
+				}  else if (operationType == 3) {
+				/*CREATE - Insert trip - User can buy a trip*/
 					Trip trip = new Trip(Integer.parseInt(destinationsId),Integer.parseInt(userId));
 					DaoTrip dao = new DaoTrip();
 					dao.insertTrip(trip);
-					out.print("Created trip with ID: " + id);
-				} else if (operationType == 3) {
-				/* Borrar (cancelar) trip*/
+					out.print("Created trip to destination with ID: " + destinationsId);
+				} else if (operationType == 4) {
+				/*DELETE - Delete trip - User can delete trip*/
 					Trip trip = new Trip(Integer.parseInt(id));
 					trip.deleteTrip(Integer.parseInt(id));
 					out.print("Deleted trip with ID: " + id);
 					System.out.println("borrando trip: " + id);
-				} else {
-					out.print("Error. No es una opción válida");
-					System.out.println("No es una opción válida");
-				}
-			
+				} 
+			} else {
+				out.print("Error. No es una opción válida");
+				System.out.println("No es una opción válida");
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {

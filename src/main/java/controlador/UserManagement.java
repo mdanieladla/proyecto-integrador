@@ -1,7 +1,6 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -45,25 +44,25 @@ public class UserManagement extends HttpServlet {
 		DaoUser users;
 		try {
 			if (operationType == 1) {
-				/*Para listar los usuarios*/
+				/* List users */
 				
 				users = new DaoUser();
 				out.print(users.listJson());
 		
 			} else if (operationType == 2) {
-				/* Para insertar usuarios*/
+				/* Insert users */
 				DaoUser dao = new DaoUser();
 				dao.insert(user);
 				out.print("User created");
 			
 			} else if (operationType == 3) {
-				/*Para actualizar usuarios*/
+				/* Update users */
 				int idParsed = Integer.parseInt(id);
 				user.setId(idParsed);
 				user.update();
 				out.print("Updated user with ID:" + idParsed);
 			} else if (operationType == 4) {
-				/* Para borrar usuarios*/
+				/* Delete user */
 				int idParsed = Integer.parseInt(id);
 				user.deleteUser(idParsed);
 				out.print("Deleted user with ID: "  + id);
@@ -77,7 +76,7 @@ public class UserManagement extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		/*SI DA TIEMPO PARA EL FRONT response.sendRedirect("listarUsuarios.html");*/
+		/*TO DO: SI DA TIEMPO PARA EL FRONT response.sendRedirect("listarUsuarios.html");*/
 	}
 
 	/**

@@ -2,10 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 
 /**
  * JAVADOC
@@ -29,12 +26,6 @@ public class dbConnection {
 			e.printStackTrace();
 			System.out.printf("error", e);
 		}
-		
-		
-	/*if (instance == null) {
-			Class.forName("com.mysql.jdbc.Driver");
-			instance = DriverManager.getConnection(url, "root", "");
-		}*/
 		
 		return instance;
 	}

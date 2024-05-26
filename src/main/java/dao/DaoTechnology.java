@@ -32,7 +32,6 @@ public class DaoTechnology {
 			}
 			
 			technology.add(new Technology(rs.getInt("id"), rs.getString("name"), rs.getString("imagePortraitUrl"), rs.getString("imageLandscapeUrl"), rs.getString("description")));
-			System.out.println("funcionatechnolgoy");
 		}
 		
 		return technology;
@@ -46,7 +45,7 @@ public class DaoTechnology {
 		
 		jsonTxt = gson.toJson(list());
 		
-		System.out.println("resultado jsontxt");
+		System.out.println("resultado jsontxt TECHNOLOGY");
 		System.out.println(jsonTxt);
 		return jsonTxt;
 	}

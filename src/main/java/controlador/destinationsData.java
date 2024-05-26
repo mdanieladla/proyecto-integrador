@@ -1,17 +1,12 @@
 package controlador;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import modelo.destinations;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import dao.daoDestinations;
 
@@ -45,30 +40,12 @@ public class destinationsData extends HttpServlet {
 			
 			String results = daoDest.listJson();
 			
-			System.out.println(results);
-			
 			out.print(results);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	/*int id = request.getIntHeader("id");
-	String name = request.getParameter("name");
-	String imageUrl = request.getParameter("imageUrl");
-	String description = request.getParameter("description");
-	String distance = request.getParameter("distance");
-	String travel = request.getParameter("travel");
-	
-	Destinations d1 =  new Destinations(id, name, imageUrl, description, distance, travel);
-	System.out.println(d1.toString());
-	
-	try {
-		d1.list();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}*/
 	
 	}
 

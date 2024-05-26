@@ -1,7 +1,6 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,16 +29,13 @@ public class TechnologyData extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("application/json");
-		
-		System.out.println("funciona tech");
+
 		try {
 			PrintWriter out = response.getWriter();
 			
 			DaoTechnology daoTech = new DaoTechnology();
 			
 			String techResults = daoTech.listJson();
-			
-			System.out.println(techResults);
 			
 			out.print(techResults);
 		} catch (Exception e) {

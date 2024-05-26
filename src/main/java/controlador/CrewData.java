@@ -1,7 +1,6 @@
 package controlador;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -31,15 +30,13 @@ public class CrewData extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		response.setContentType("application/json");
-		System.out.println("va techno serv");
+
 		try {
 			PrintWriter out = response.getWriter();
 			
 			DaoCrew daoCrew = new DaoCrew();
 			
 			String crewResults = daoCrew.listJson();
-			
-			System.out.println(crewResults);
 			
 			out.print(crewResults);
 

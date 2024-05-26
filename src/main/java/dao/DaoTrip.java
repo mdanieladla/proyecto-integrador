@@ -30,10 +30,10 @@ public class DaoTrip {
 		ps.close();
 	}
 	
-	public Trip getById(int id) throws SQLException {
-		String sql = "SELECT * FROM destinationsusers WHERE id=?";
+	public Trip getById(int userId) throws SQLException {
+		String sql = "SELECT * FROM destinationsusers WHERE userId=?";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setInt(1, id);
+		ps.setInt(1, userId);
 		ResultSet rs = ps.executeQuery();
 		
 		rs.next();
@@ -43,9 +43,7 @@ public class DaoTrip {
 		return trip;
 	}
 	
-	//esto es la relación de las tablas para sacar los ids, username y destino name
 	public ArrayList<Trip> listTrips() throws SQLException {
-		//String sql = "SELECT destinations.id AS 'DestID', users.id, destinationsusers.id, destinations.name, users.username FROM spacetourism.destinations INNER JOIN spacetourism.destinationsusers ON destinations.id=destinationsusers.destinationsId INNER JOIN spacetourism.users ON destinationsusers.userId=users.id WHERE userId=?";
 		String sql = "SELECT * FROM destinationsusers";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
@@ -71,12 +69,21 @@ public class DaoTrip {
 		ps.close();
 	}
 	
-	public String listJson(int userId) throws SQLException {
+	public String listJson() throws SQLException {
 		
 		String json = "";
 		Gson gson = new Gson();
 		
 		json = gson.toJson(this.listTrips());
+		
+		return json;
+	}
+	
+	public String listByIdJson(int userId) throws SQLException {
+		String json = "";
+		Gson gson = new Gson();
+		
+		json = gson.toJson(this.getById(userId));
 		
 		return json;
 	}

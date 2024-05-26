@@ -18,10 +18,6 @@ public class DaoUser {
 		this.con = dbConnection.getConnection();
 	}
 	
-	private boolean exists(User user) {
-		return true;
-	}
-	
 	/**
 	 * Método inserción en la bd del objecto user
 	 * @param user Object type user

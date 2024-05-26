@@ -33,7 +33,6 @@ public class DaoCrew {
 			}
 			
 			crew.add(new Crew(rs.getInt("id"), rs.getString("name"), rs.getString("imageUrl"), rs.getString("role"), rs.getString("bio")));
-			System.out.println("funciona crew");
 		}
 		return crew;
 	}
@@ -45,7 +44,7 @@ public class DaoCrew {
 		
 		jsonTxt = gson.toJson(list());
 		
-		System.out.println("resultado jsontxt");
+		System.out.println("resultado jsontxt CREW");
 		System.out.println(jsonTxt);
 		return jsonTxt;
 	}

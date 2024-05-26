@@ -1,31 +1,20 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
 import modelo.destinations;
-import dao.dbConnection;
 /**
  * JAVADDOC
  */
 public class daoDestinations {
 	
 	public static Connection con = null;
-	
-	/*public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		
-		daoDestinations.con = dbConnection.getConnection();
-		
-		listJson();
-	}*/
-	
 
 	public daoDestinations() throws SQLException, ClassNotFoundException {
 		
@@ -48,7 +37,6 @@ public class daoDestinations {
 			}
 			
 			destinations.add(new destinations(rs.getInt("id"), rs.getString("name"), rs.getString("imageUrl"), rs.getString("description"), rs.getString("distance"), rs.getString("travel")));
-			System.out.println("funciona");
 		}
 		
 		return destinations;
@@ -60,7 +48,7 @@ public class daoDestinations {
 		Gson gson = new Gson();
 		
 		jsonTxt = gson.toJson(list());
-		System.out.println("resultado jsontxt");
+		System.out.println("resultado jsontxt DESTINATIONS");
 		System.out.println(jsonTxt);
 		return jsonTxt;
 	}
