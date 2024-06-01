@@ -55,15 +55,19 @@
 }
 
 .planet {
+    margin-right: 1.5rem;
     > button {
         background: none;
         border: none;
         color: inherit;
         cursor: pointer;
         font: inherit;
-        margin-right: 1.5rem;
         padding: 0;
         text-transform: uppercase;
+    }
+
+    .active {
+        border-bottom: 2px solid white;
     }
 }
 

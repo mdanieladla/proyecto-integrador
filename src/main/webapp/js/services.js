@@ -1,28 +1,30 @@
 'use strict';
 
 let destinations = [];
-
-/*fetch('./mockedResponses/destinations.json') /*aquí se cambiará por la llamada al back -> bbdd 
+//fetch mockeado
+function fetchMockedData() {
+  fetch('./mockedResponses/destinations.json')
     .then(response => response.json())
     .then(data => {
         destinations = data.destinations;
-        processData();
+        console.log('JSON:::',destinations)
+        //processData();
     })
-    .catch(error => console.error('Error fetching JSON:', error));*/
+    .catch(error => console.error('Error fetching JSON:', error));
+}
 
+
+//fetch a la bd
 function fetchData() {
       fetch('destinationsData')
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => console.log('DB:::', data))
         .catch(error => console.error('Error fetching JSON:', error));
-    }
-    
-    // function pintar(results) {
-    //   console.log(results)
-    // }
-    
+}
+
     window.onload = function() {
       fetchData();
+      fetchMockedData();
     }
 
 /*código para coger los usuarios en AJAX puro, usando fetch hay cosas que no se hacen
@@ -48,11 +50,8 @@ window.onload = function () {
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send()
 } */
-    
-/* para pintar los usuarios después de cogerlo, vídeo 6 abril 2h26min */
 
-
-
+//Para pintar la información requerida acerca del planeta
 // function processData() {
 //     const destinationsNames = document.querySelector('#destinationsNames');
 //     const destinationContainer = document.querySelector('#destination');
@@ -90,45 +89,5 @@ window.onload = function () {
 //         </button>
 //         `;
 //         destinationsNames.appendChild(destinationName);
-
-//       //Para pintar la información requerida acerca del planeta
-//         let newDestination = document.createElement("div");
-//         newDestination.id = destination.name;
-//         newDestination.classList.add("content");
-//         newDestination.innerHTML = `
-//         <p class="destination__container--text--main-title">
-//           ${destination.name}
-//         </p>
-//         <p class="destination__container--text--paragraph">
-//           ${destination.description}
-//         </p>
-//         <div class="destination__container--text--rectangle"></div>
-//         <div class="container__div--info">
-//           <div class="div__info">
-//             <p class="info-travel">Avg. distance</p>
-//             <p class="info-distance">${destination.distance}</p>
-//           </div>
-//           <div class="div__info">
-//             <p class="info-travel">Est. travel time</p>
-//             <p class="info-distance">${destination.travel}</p>
-//           </div>
-//         </div>
-//         `;
-//         destinationContainer.appendChild(newDestination);
 //     })
-// }
-
-// function fetchData() {
-//   fetch(destinationsData)
-//     .then(response => response.json())
-//     .then(data => pintar(data))
-
-// }
-
-// function pintar(results) {
-//   console.log(results)
-// }
-
-// window.onload = function() {
-//   fetchData();
 // }

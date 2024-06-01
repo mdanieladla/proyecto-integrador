@@ -71,7 +71,7 @@ opacity: 0.25;
 }
 
 .img-vehicle {
-    background-image: url('../assets/images/image-space-capsule-landscape.jpg');
+    background-image: url('../assets/images/technology/image-space-capsule-landscape.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -82,7 +82,7 @@ opacity: 0.25;
         height: 310px;
     }
     @media all and (width >= 1024px) {
-        background-image: url('../assets/images/image-space-capsule-portrait.jpg');
+        background-image: url('../assets/images/technology/image-space-capsule-portrait.jpg');
         height: 470px;
         margin: 2rem 0 1rem 0;
     }
