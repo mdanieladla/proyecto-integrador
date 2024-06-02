@@ -16,9 +16,6 @@ public class User {
 	private String name;
 	private String email;
 	private String password;
-	/*NOTA: una contraseña no se puede guardar en un modelo 
-	 * por la protección de datos
-	 * */
 	
 	/**
 	 * Constructor to generate void object of type user

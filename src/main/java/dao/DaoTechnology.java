@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package dao;
 
 import java.sql.Connection;
@@ -13,11 +16,21 @@ import modelo.Technology;
 public class DaoTechnology {
 
 	public static Connection con = null;
-	
+
+	/**
+	 * Method to get connection to DB
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public DaoTechnology() throws ClassNotFoundException, SQLException {
 		this.con = dbConnection.getConnection();
 	}
 	
+	/**
+	 * Method to list technologies
+	 * @return technology of type ArrayList of Technology
+	 * @throws SQLException
+	 */
 	private static ArrayList<Technology> list() throws SQLException {
 		String sql = "SELECT * FROM technology";
 		
@@ -38,6 +51,11 @@ public class DaoTechnology {
 		
 	}
 	
+	/**
+	 * Method to list data as JSON
+	 * @return jsonTxt
+	 * @throws SQLException
+	 */
 	public static String listJson() throws SQLException {
 		String jsonTxt = "";
 		

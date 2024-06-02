@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package modelo;
 
 import java.sql.SQLException;
@@ -118,6 +121,11 @@ public class Crew {
 		this.bio = bio;
 	}
 
+	/**
+	 * Method to list crew data
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void list() throws ClassNotFoundException, SQLException {
 		DaoCrew dao = new DaoCrew();
 	}

@@ -96,7 +96,7 @@ public class Trip {
 	}
 
 	/**
-	 * 
+	 * Method to insert trip
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
@@ -105,6 +105,12 @@ public class Trip {
 		dao.insertTrip(this);
 	}
 	
+	/**
+	 * Method to get trip by id
+	 * @param id of type int
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void getById(int id) throws ClassNotFoundException, SQLException {
 		DaoTrip dao = new DaoTrip();
 		Trip trip = dao.getById(id);
@@ -114,6 +120,12 @@ public class Trip {
 		this.setUserId(trip.getUserId());
 	}
 	
+	/**
+	 * Method to delete trip
+	 * @param id
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public void deleteTrip(int id) throws ClassNotFoundException, SQLException {
 		DaoTrip dao = new DaoTrip();
 		dao.deleteTrip(id);

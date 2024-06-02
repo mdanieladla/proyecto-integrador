@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package dao;
 
 import java.sql.Connection;
@@ -16,12 +19,22 @@ public class daoDestinations {
 	
 	public static Connection con = null;
 
+	/**
+	 * Method to get connection to DB
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public daoDestinations() throws SQLException, ClassNotFoundException {
 		
 		this.con = dbConnection.getConnection();
  		
 	}
 	
+	/**
+	 * Method to list destinations
+	 * @return destinations of type ArrayList of destinations
+	 * @throws SQLException
+	 */
 	private static ArrayList<destinations> list() throws SQLException {
 		String sql = "SELECT * FROM destinations";
 		
@@ -42,6 +55,11 @@ public class daoDestinations {
 		return destinations;
 	}
 	
+	/**
+	 * Method to list data as JSON
+	 * @return jsonTxt
+	 * @throws SQLException
+	 */
 	public static String listJson() throws SQLException {
 		String jsonTxt = "";
 		

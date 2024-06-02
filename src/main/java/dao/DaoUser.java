@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package dao;
 
 import java.sql.Connection;
@@ -14,12 +17,17 @@ public class DaoUser {
 
 	public static Connection con = null;
 	
+	/**
+	 * Method to get connection do DB
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public DaoUser() throws ClassNotFoundException, SQLException {
 		this.con = dbConnection.getConnection();
 	}
 	
 	/**
-	 * Método inserción en la bd del objecto user
+	 * Method to insert to DB user object
 	 * @param user Object type user
 	 * @throws SQLException
 	 */
@@ -38,6 +46,12 @@ public class DaoUser {
 		ps.close();
 	}
 	
+	/**
+	 * Method to get user by id from DB
+	 * @param id of type Int
+	 * @return usr of type User
+	 * @throws SQLException
+	 */
 	public User getById(int id) throws SQLException {
 		
 		String sql = "SELECT * FROM users WHERE id=?";
@@ -53,6 +67,13 @@ public class DaoUser {
 		return usr;
 	}
 	
+	/**
+	 * Method login for user to login
+	 * @param email of type String
+	 * @param password of type String
+	 * @return aux of type User
+	 * @throws SQLException
+	 */
 	public User login(String email, String password) throws SQLException {
 		String sql = "SELECT * FROM users WHERE email=? AND password=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -67,6 +88,11 @@ public class DaoUser {
 		return aux;
 	}
 	
+	/**
+	 * Method to update user in DB
+	 * @param usr of type User
+	 * @throws SQLException
+	 */
 	public void update(User usr) throws SQLException {
 		String sql = "UPDATE users SET username=?, email=? WHERE id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -79,6 +105,11 @@ public class DaoUser {
 		ps.close();
 	}
 	
+	/**
+	 * Method to delete user in DB
+	 * @param id of type Int
+	 * @throws SQLException
+	 */
 	public void deleteUser(int id) throws SQLException {
 		String sql = "DELETE FROM users WHERE id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -88,6 +119,11 @@ public class DaoUser {
 		ps.close();
 	}
 	
+	/**
+	 * Method to list Users
+	 * @return listUsers of type Array of User
+	 * @throws SQLException
+	 */
 	public ArrayList<User> list() throws SQLException {
 		String sql = "SELECT * FROM users";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -110,7 +146,8 @@ public class DaoUser {
 	}
 	
 	/**
-	 * Creo json para devolverlo al cliente
+	 * Method to create json for client
+	 * @return json
 	 * @throws SQLException 
 	 */
 	public String listJson() throws SQLException {
@@ -123,6 +160,11 @@ public class DaoUser {
 		return json;
 	}
 	
+	/**
+	 * Method to return a response when user is logged in
+	 * @param response of type boolean
+	 * @return
+	 */
 	public String responseLogin(boolean response) {
 		String json = "";
 		Gson gson = new Gson();

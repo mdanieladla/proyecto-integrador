@@ -1,17 +1,25 @@
+/**
+ * @author Daniela Darnea
+ */
 package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * JAVADOC
- */
 public class dbConnection {
-	
+	/**
+	 * Define url for connection to DB
+	 */
 	public static final String url = "jdbc:mysql://localhost:3306/spacetourism";
 	public static Connection instance = null;
 	
+	/**
+	 * Method to get connection to DB
+	 * @return instance
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		
 		try {

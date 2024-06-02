@@ -1,3 +1,6 @@
+/**
+ * @author Daniela Darnea
+ */
 package modelo;
 
 import java.sql.SQLException;
